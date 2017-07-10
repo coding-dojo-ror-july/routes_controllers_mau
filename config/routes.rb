@@ -1,12 +1,25 @@
 Rails.application.routes.draw do
   root 'products#index'
+
+  # resources :products
   get 'index' => 'products#index'
   get 'hello' => 'products#hello'
   # the :name param becomes options
   get 'say/hello(/:name)' => 'products#say'
   get 'times' => 'products#times'
   get 'times/restart' => 'products#reset'
-  # resources :products
+
+  # resources :users
+  get 'users' => 'users#index'
+  get 'users/new' => 'users#new'
+  get 'users/total' => 'users#total'
+  get 'users/:id' => 'users#show'
+  get 'users/:id/edit' => 'users#edit'
+  post 'users/:id/edit' => 'users#edit'
+  post 'users' => 'users#create'
+  put 'users/:id' => 'users#update'
+  patch 'users/:id' => 'users#patch'
+  delete 'users/:id' => 'users#delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
