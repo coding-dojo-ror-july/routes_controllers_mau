@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  root 'products#index'
+  resources :users
+  root "times#main"
+  # root 'products#index'
 
   # resources :products
   get 'index' => 'products#index'
+  get 'products' => 'products#index'
   get 'hello' => 'products#hello'
   # the :name param becomes options
   get 'say/hello(/:name)' => 'products#say'
